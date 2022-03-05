@@ -5,7 +5,7 @@ class WeatherService
   end
 
   def self.get_weather(lat, lon)
-    response = conn.get('onecall', { lat: lat, lon: lon, exclude: 'minutely,alerts'})
-    a = JSON.parse(response.body, symbolize_names: true)
+    response = conn.get('onecall', { lat: lat, lon: lon, exclude: 'minutely,alerts', 'units': 'imperial'})
+    JSON.parse(response.body, symbolize_names: true)
   end
 end
