@@ -29,17 +29,10 @@ Your team is working in a service-oriented architecture. The front-end will comm
 - SimpleCov
 - Capybara
 - Shoulda-Matchers 
-- Factory_Bot_Rails
-- Faker
-- jsonapi-serialize
-- omniauth-google-oauth2
 - Figaro
 - Webmock
 - VCR
-- jquery-rails
-- rspec_junit_formatter
-- Orderly
-- dotenv-rails
+
 
 ## Setup
 1. Clone this repository:
@@ -48,12 +41,12 @@ On your local machine open a terminal session and enter the following commands f
 
 - using ssh key <br>
 ```shell
-$ git clone git@github.com:Cuisine-Odyssey/backend_application.git
+$ git clone git@github.com:kanderson852/sweater_weather.git
 ```
 
 - using https <br>
 ```shell
-$ git clone https://github.com/Cuisine-Odyssey/backend_application
+$ git clone https://github.com/kanderson852/sweater_weather
 ```
 
 Once cloned, you'll have a new local copy in the directory you ran the clone command in.
@@ -62,7 +55,7 @@ Once cloned, you'll have a new local copy in the directory you ran the clone com
 In terminal, use `$cd` to navigate to the backend Application project directory.
 
 ```shell
-$ cd backend_application
+$ cd sweater_weather
 ```
 
 3. Install required Gems utilizing Bundler: <br>
@@ -161,6 +154,18 @@ Before using the web application you will need to setup your databases locally b
 ```shell
 $ rails db: {:drop, :create, :migrate, :seed}
 ```
+## API keys needed 
+Visit 
+- https://developer.mapquest.com/documentation/geocoding-api/
+- https://openweathermap.org/api/one-call-api
+- https://unsplash.com/developers
 
-outlines the learning goals, how someone can clone and set up your application and where they can get their own API keys, and happy path endpoint use.
+Sign up for an API key from each provider and add this in application.yml
+
+
+
+## Endpoints provided 
+
+
+where they can get their own API keys, and happy path endpoint use.
 
