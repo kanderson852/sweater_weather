@@ -8,13 +8,13 @@ Your team is working in a service-oriented architecture. The front-end will comm
 ## Learning Goals 
 
 - Expose an API that aggregates data from multiple external APIs
-- 
+
 - Expose an API that requires an authentication token
-- 
+
 - Expose an API for CRUD functionality
-- 
+
 - Determine completion criteria based on the needs of other developers
-- 
+
 - Research, select, and consume an API based on your needs as a developer
 
 ## Requirements and Setup (for Mac):
