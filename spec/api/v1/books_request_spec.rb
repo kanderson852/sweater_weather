@@ -4,7 +4,7 @@ describe "Book search API" do
   it "sends a list of books", :vcr do
 
 
-    get '/api/v1/book-search?location=denver,co&quantity=5'
+    get '/api/v1/book-search?location=denver&quantity=5'
 
     books = JSON.parse(response.body, symbolize_names: true)
     expect(response).to be_successful
