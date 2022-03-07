@@ -6,6 +6,6 @@ class PhotoService
 
   def self.find_image(location)
     response = conn.get('search/photos', { query: "#{location} weather"})
-    a = JSON.parse(response.body, symbolize_names: true)[:results][0]
+    JSON.parse(response.body, symbolize_names: true)[:results][0]
   end
 end
