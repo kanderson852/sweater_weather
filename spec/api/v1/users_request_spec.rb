@@ -31,15 +31,8 @@ describe "Users API" do
   end
 
   it 'cannot duplicate an email', :vcr do
-    headers = { 'Content-Type': 'application/json' }
-    params = {
-      "email": "whatever@example.com",
-      "password": "password",
-      "password_confirmation": "password"
-    }
-    post '/api/v1/users', headers: headers, params: JSON.generate(params)
 
-    expect(response).to be_successful
+    user = User.create!(email: "whatever@example.com", password: "password", password_confirmation: "password")
 
     headers = { 'Content-Type': 'application/json' }
     params = {
@@ -49,7 +42,24 @@ describe "Users API" do
     }
     post '/api/v1/users', headers: headers, params: JSON.generate(params)
 
-    expect(response).to have_http_status(404)
+    invalid = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).to have_http_status(200)
+    expect(invalid[:data][:message]).to eq('Invalid Email/Password')
+  end
+
+  it 'returns 404 when given invalid attributes', :vcr do
+    params = {
+      "email": "whatevergmail.com",
+      "password": "password",
+      "password_confirmation": "password"
+    }
+    headers = { 'CONTENT_TYPE' => 'application/json'}
+    post '/api/v1/users', headers: headers, params: JSON.generate(params)
+    invalid = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).to have_http_status(200)
+    expect(invalid[:data][:message]).to eq('Invalid Email/Password')
   end
 
   it 'cannot be missing a field', :vcr do
