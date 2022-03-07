@@ -4,5 +4,4 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP },
             :presence => {message: "can't be blank"},
             :uniqueness => true
-
 end
