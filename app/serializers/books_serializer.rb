@@ -1,40 +1,24 @@
 class BooksSerializer
 
-  def self.books(books_list, location)
-    require "pry"; binding.pry
+  def self.books(books_list, location, forecast)
         {
       "data": {
         "id": "null",
         "type": "books",
         "attributes": {
-          "destination": "denver,co",
+          "destination": location,
           "forecast": {
-            "summary": "Cloudy with a chance of meatballs",
-            "temperature": "83 F"
+            "summary": forecast[:weather][0][:description],
+            "temperature": forecast[:temp]
           },
-          "total_books_found": 172,
-          "books": [
+          "total_books_found": books_list[:numFound],
+          "books": books_list[:docs].map do |book|
             {
-              "isbn": [
-                "0762507845",
-                "9780762507849"
-              ],
-              "title": "Denver, Co",
-              "publisher": [
-                "Universal Map Enterprises"
-              ]
-            },
-            {
-              "isbn": [
-                "9780883183663",
-                "0883183668"
-              ],
-              "title": "Photovoltaic safety, Denver, CO, 1988",
-              "publisher": [
-                "American Institute of Physics"
-              ]
+              "isbn": book[:isbn],
+              "title": book[:title],
+              "publisher": book[:publisher]
             }
-          ]
+          end,
         }
       }
     }
