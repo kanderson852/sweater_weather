@@ -18,4 +18,12 @@ describe "Book search API" do
     expect(books_response[:data][:attributes][:forecast]).to_not have_key(:humidity)
     expect(books_response[:data][:attributes][:books][0]).to_not have_key(:publish_date)
   end
+
+  it "only gets results for a valid quantity", :vcr do
+
+
+    get '/api/v1/book-search?location=denver,co&quantity=0'
+
+    expect(response).to have_http_status(404)
+  end
 end
