@@ -12,7 +12,7 @@ RSpec.describe BooksService, type: :service do
 
     describe '::find_book' do
       it 'returns books related to a destination', :vcr do
-         books = BooksService.find_book("Denver,CO", 5)
+         books = BooksService.find_books("Denver,CO", 5)
 
          expect(books).to be_a(Hash)
          expect(books).to have_key(:docs)
