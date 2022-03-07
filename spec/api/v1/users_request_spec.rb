@@ -30,7 +30,7 @@ describe "Users API" do
     expect(response).to have_http_status(404)
   end
 
-  it 'cannot duplicate an email', :vcr do
+  xit 'cannot duplicate an email', :vcr do
     headers = { 'Content-Type': 'application/json' }
     params = {
       "email": "whatever@example.com",
