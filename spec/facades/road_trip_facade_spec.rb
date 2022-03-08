@@ -11,6 +11,7 @@ RSpec.describe RoadTripFacade, type: :facade do
         expect(trip.start_city).to eq('Denver, Co')
         expect(trip.end_city).to eq('Pueblo, Co')
         expect(trip.travel_time).to eq("01 hours, 45 minutes")
+        expect(trip.weather_at_eta).to eq({temperature: 39.81 , conditions: "clear sky"})
       end
     end
   end
