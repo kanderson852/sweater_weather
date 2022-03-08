@@ -16,7 +16,6 @@ RSpec.describe RoadTripService, type: :service do
 
          expect(trip).to be_a(Hash)
          expect(trip).to have_key(:route)
-         require "pry"; binding.pry
        end
      end
   end
