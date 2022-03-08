@@ -37,6 +37,18 @@ RSpec.describe RoadTripService, type: :service do
              location: {:lng=>-96.70261, :lat=>40.813599}
            })
       end
+
+      it 'returns trip information for an invalid destination', :vcr do
+         trip = RoadTripService.formatted_data("Denver, CO", "London, UK")
+
+         expect(trip).to be_a(Hash)
+         expect(trip).to eq(  {
+           travel_time: 'impossible',
+           origin: "Denver, CO",
+           destination: "London, UK",
+           location: ''
+         })
+      end
     end
   end
 end
