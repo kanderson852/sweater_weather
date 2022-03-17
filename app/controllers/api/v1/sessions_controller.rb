@@ -4,8 +4,6 @@ class Api::V1::SessionsController < ApplicationController
     return invalid_credentials if user.nil?
     if user.authenticate(params[:password])
       render json: SessionsSerializer.sessions_data(user)
-    else
-      render status: 404
     end
   end
 
